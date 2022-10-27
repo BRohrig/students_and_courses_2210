@@ -8,5 +8,14 @@ RSpec.describe Student do
     expect(student.age).to eq(21)
   end
 
-  it 'has an array of scores that starts out empty'
+  it 'has an array of scores that starts out empty' do
+    expect(student.scores).to eq([])
+  end
+
+  it 'has a method to add scores to the scores array' do
+    student.log_score(89)
+    student.log_score(78)
+    
+    expect(student.scores).to eq([89, 78])
+  end
 end
