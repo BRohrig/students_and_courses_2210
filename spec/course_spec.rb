@@ -23,4 +23,41 @@ RSpec.describe Course do
     expect(course.students).to eq([student1, student2])
     expect(course.full?).to be true
   end
+
+  it 'has a method to find students below a certain grade' do
+    course.enroll(student1)
+    course.enroll(student2)
+    student1.log_score(50)
+    student1.log_score(60)
+    student2.log_score(75)
+    student2.log_score(85)
+
+    expect(course.find_students_below(79)).to eq([student1])
+  end
+
+  it 'has a method to find if any students exist below a certain grade' do
+    course.enroll(student1)
+    course.enroll(student2)
+    student1.log_score(50)
+    student1.log_score(60)
+    student2.log_score(75)
+    student2.log_score(85)
+
+    expect(course.any_students_below?(45)).to be false
+    expect(course.any_students_below?(60)).to be true
+  end
+
+  it 'has a method to find if any students exist within a certain grade range' do
+    course.enroll(student1)
+    course.enroll(student2)
+    student1.log_score(50)
+    student1.log_score(60)
+    student2.log_score(75)
+    student2.log_score(85)
+
+    expect(course.students_within?(50, 60)).to be true
+    expect(course.students_within?(40, 50)).to be false
+    expect(course.students_within?(75, 80)).to be true
+
+  end
 end
