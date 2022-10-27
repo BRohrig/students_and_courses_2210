@@ -69,7 +69,4 @@ RSpec.describe Gradebook do
     expect(gradebook.students_within(70, 80)).to eq([[student2]])
     expect(gradebook.students_within(90, 100)).to eq([[student3]])
   end
-
-
-
 end

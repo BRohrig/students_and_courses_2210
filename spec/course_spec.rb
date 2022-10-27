@@ -58,6 +58,5 @@ RSpec.describe Course do
     expect(course.students_within?(50, 60)).to be true
     expect(course.students_within?(40, 50)).to be false
     expect(course.students_within?(75, 80)).to be true
-
   end
 end

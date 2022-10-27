@@ -33,9 +33,4 @@ class Gradebook
     end
     students_in_range
   end
-
-
-
-
-
 end

@@ -15,7 +15,4 @@ class Student
     total = @scores.sum.to_f
     (total / @scores.count).round(1)
   end
-
-
-
 end
